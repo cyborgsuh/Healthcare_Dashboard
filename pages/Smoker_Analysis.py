@@ -11,6 +11,10 @@ smoker_summary = df.groupby('smoker').agg({
     'customer_satisfaction': 'mean'
 }).reset_index()
 
+#Replacing numbers to words for better understanding
+smoker_summary.replace({1: "Yes", 0: "No"}, inplace=True)
+df['smoker']=df['smoker'].replace({1: "Yes", 0: "No"})
+
 # Plotting average charges by smoker status
 charges_fig = px.bar(
     smoker_summary,
@@ -20,7 +24,8 @@ charges_fig = px.bar(
     color='smoker',  
     color_continuous_scale='greens',
     labels={'charges': 'Average Charges', 'smoker': 'Smoker Status'},
-    color_discrete_sequence=['seagreen']
+    color_discrete_sequence=['#A0AEC0','seagreen'],
+    
 )
 # Plotting average satisfaction by smoker status
 satisfaction_fig = px.bar(smoker_summary, 
@@ -30,7 +35,7 @@ satisfaction_fig = px.bar(smoker_summary,
     color='smoker',
     color_continuous_scale='greens',
     labels={'customer_satisfaction': 'Average Satisfaction', 'smoker': 'Smoker Status'},
-    color_discrete_sequence=['seagreen'])
+    color_discrete_sequence=['#A0AEC0','seagreen'])
 
 # Box Plot: Distribution of Charges for Smokers vs Non-Smokers
 box_fig = px.box(df, 
@@ -39,7 +44,7 @@ box_fig = px.box(df,
     title='Charges Distribution: Smokers vs Non-Smokers', 
     color='smoker',
     labels={'charges': 'Charges', 'smoker': 'Smoker Status'},
-    color_discrete_sequence=['seagreen']
+    color_discrete_sequence=['seagreen','#A0AEC0'],
     )
 
 # Streamlit page content
