@@ -50,7 +50,7 @@ st.title("ML Model Comparison for Charge Prediction")
 st.subheader("Performance Metrics")
 
 # Display results
-st.dataframe(results_df)
+st.dataframe(results_df,use_container_width=True)
 
 # Plotting the comparison of models
 fig_mae = px.bar(results_df, x=results_df.index, y='MAE', title='Mean Absolute Error (MAE) of Different Models',

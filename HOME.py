@@ -78,4 +78,3 @@ st.markdown('''
             Please click on the sidebar to navigate to the pages.
             ''')
 
-

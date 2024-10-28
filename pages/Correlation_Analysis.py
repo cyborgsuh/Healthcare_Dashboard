@@ -10,7 +10,7 @@ st.title("Correlation Analysis")
 df = pd.read_csv("./dataset.csv")
 
 # Drop non-numeric columns for correlation analysis
-df_corr = df.drop(columns=['region', 'date'])
+df_corr = df.drop(columns=['region', 'date','Doctor'])
 corr = df_corr.corr()
 mask = np.triu(np.ones_like(corr, dtype=bool))
 corr_masked = corr.mask(mask)
@@ -38,7 +38,7 @@ fig.update_traces(
 fig.update_layout(
     xaxis=dict(tickangle=45),
     yaxis=dict(tickangle=0),
-    width=600, height=600,
+    width=800, height=800,
 )
 
 # Show the figure

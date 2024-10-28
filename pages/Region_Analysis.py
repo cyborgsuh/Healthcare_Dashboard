@@ -101,5 +101,5 @@ st.plotly_chart(pie_chart, use_container_width=True)
 # Box Plot: BMI Distribution in Selected Region
 st.subheader(f"BMI Distribution in {selected_region}")
 box_chart = px.box(df_region, x='region', y='bmi', color='region',
-                   color_discrete_sequence=['seagreen'])
+                   color_discrete_sequence=['seagreen','#A0AEC0'])
 st.plotly_chart(box_chart, use_container_width=True)

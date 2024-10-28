@@ -61,4 +61,4 @@ st.plotly_chart(box_fig)
 
 # Show summary data as a table
 st.subheader("Summary Data")
-st.dataframe(smoker_summary)
+st.dataframe(smoker_summary,use_container_width=True)
