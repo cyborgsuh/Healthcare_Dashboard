@@ -54,21 +54,21 @@ with cols[2]:
 st.subheader(f"Average Charges in {selected_region} vs Other Regions")
 # Calculate average charges for all regions and the selected region
 df_avg_charges = df.groupby('region')['charges'].mean().reset_index()
-if selected_region != 'All Regions':
-    selected_region_avg = df_avg_charges[df_avg_charges['region'] == selected_region]['charges'].values[0]
+
+
 global_avg = df['charges'].mean()
 
 # Create the bar chart with comparison to all regions and highlight the selected region
 bar_chart = px.bar(df_avg_charges,
-                   x='region',
-                   y='charges',
-                   labels={'charges': 'Average Charges ($)'},
-                   color_discrete_sequence=['#A0AEC0']  # Default color for other regions
-                   )
+            x='region',
+            y='charges',
+            labels={'charges': 'Average Charges ($)'},
+            color_discrete_sequence=['#A0AEC0']  # Default color for other regions
+            )
 
 # Highlight the selected region by changing its color
 bar_chart.update_traces(marker=dict(color=['seagreen' if region == selected_region else '#A0AEC0' 
-                                           for region in df_avg_charges['region']]))
+                        for region in df_avg_charges['region']]))
 
 # Add a target line showing the global average charges
 bar_chart.add_shape(type="line",
@@ -93,7 +93,7 @@ df_smoker_count.columns = ['smoker', 'count']
 
 # Create the pie chart using the count of smokers
 pie_chart = px.pie(df_smoker_count, names='smoker', values='count', 
-                   color_discrete_sequence=['seagreen', '#A0AEC0'])
+                color_discrete_sequence=['seagreen', '#A0AEC0'])
 
 # Display the pie chart in Streamlit
 st.plotly_chart(pie_chart, use_container_width=True)
@@ -101,5 +101,5 @@ st.plotly_chart(pie_chart, use_container_width=True)
 # Box Plot: BMI Distribution in Selected Region
 st.subheader(f"BMI Distribution in {selected_region}")
 box_chart = px.box(df_region, x='region', y='bmi', color='region',
-                   color_discrete_sequence=['seagreen','#A0AEC0'])
+                color_discrete_sequence=['seagreen','#A0AEC0'])
 st.plotly_chart(box_chart, use_container_width=True)

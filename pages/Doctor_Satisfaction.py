@@ -1,8 +1,52 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 from streamlit_extras.chart_container import chart_container
 import streamlit_shadcn_ui as ui
+
+import plotly.graph_objects as go
+
+def create_radar_chart(data):
+    categories = data['Doctor'].tolist()
+    satisfaction_values = data['customer_satisfaction'].tolist()
+    revisit_values = data['customer_revisit'].tolist()
+
+    # Create a radar chart figure
+    fig = go.Figure()
+
+    # Add customer satisfaction trace with seagreen color
+    fig.add_trace(go.Scatterpolar(
+        r=satisfaction_values + [satisfaction_values[0]],  # Closing the radar chart
+        theta=categories + [categories[0]],  # Closing the radar chart
+        fill='toself',
+        name='Customer Satisfaction',
+        marker_color='#A0AEC0'  # Seagreen or custom color
+    ))
+
+    # Add customer revisit trace with seagreen color
+    fig.add_trace(go.Scatterpolar(
+        r=revisit_values + [revisit_values[0]],  # Closing the radar chart
+        theta=categories + [categories[0]],  # Closing the radar chart
+        fill='toself',
+        name='Customer Revisit',
+        marker_color='seagreen'  # Seagreen or custom color
+    ))
+
+    # Update layout for the radar chart
+    fig.update_layout(
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                range=[0, max(max(satisfaction_values), max(revisit_values)) + 1]  # Adjust range based on max values
+            )),
+        showlegend=True,
+        title="Customer Satisfaction and Revisit Scores by Doctor",
+    )
+
+    return fig
+
+
 
 # Load the dataset
 df = pd.read_csv('./dataset.csv')
@@ -13,7 +57,7 @@ doctor_df = df[['Doctor', 'customer_satisfaction', 'customer_revisit']]
 # Calculate aggregated metrics for each doctor
 doctor_summary = doctor_df.groupby('Doctor').agg({
     'customer_satisfaction': 'mean',   # Average customer satisfaction per doctor
-    'customer_revisit': 'sum'          # Total revisits per doctor
+    'customer_revisit': 'mean'          # Total revisits per doctor
 }).reset_index()
 
 # Set up the page
@@ -49,15 +93,21 @@ with chart_container(mean_satisfaction_df):
     st.plotly_chart(satisfaction_box_fig, use_container_width=True)
 
 
-# Visualization: Customer Revisit Distribution per Doctor (Pie Chart)
+Doctor_revisit_df=df.groupby('Doctor')['customer_revisit'].sum().reset_index()
+
 st.subheader("Customer Revisit Distribution per Doctor")
 revisit_pie_fig = px.pie(
-    doctor_summary,
+    Doctor_revisit_df,
     names='Doctor',
     values='customer_revisit',
     color_discrete_sequence=['#28C76F', '#2C7A7B', '#FFD166', '#FF6B6B', '#38B2AC']  # Tropical-themed colors
 )
 
 # Show the pie chart in a chart container
-with chart_container(doctor_summary[['Doctor', 'customer_revisit']]):
+with chart_container(Doctor_revisit_df):
     st.plotly_chart(revisit_pie_fig, use_container_width=True)
+
+
+radar_chart_fig = create_radar_chart(doctor_summary)
+with chart_container(doctor_summary):
+    st.plotly_chart(radar_chart_fig, use_container_width=True)
