@@ -1,7 +1,6 @@
 import streamlit as st
 import streamlit_themes as st_theme
 st_theme.set_preset_theme('Tropical')   #Tropical, Sandy, Midnight
-#setting wide layout
 st.set_page_config(layout="wide")
 
 p1 = st.Page('HOME.py', title='Main Page', icon=':material/home:')  
