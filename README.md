@@ -24,7 +24,7 @@ This **Healthcare Analytics Dashboard** is an interactive **Streamlit** applicat
   - **Navigation Bar** to switch between pages easily.
   - **Data-driven visualizations** with **Plotly** and **Streamlit Extras**.
 
----
+
 
 ## 📦 Installed Packages
 
@@ -37,7 +37,7 @@ This **Healthcare Analytics Dashboard** is an interactive **Streamlit** applicat
 - **streamlit-extras**
 - **streamlit-shadcn-ui**
 
----
+
 
 ## 📈 Model Performance
 
@@ -45,7 +45,7 @@ This **Healthcare Analytics Dashboard** is an interactive **Streamlit** applicat
 - **Model Comparison:** The application displays performance metrics for each model using interactive charts.
 - **User Prediction:** Users can input their **age**, **BMI**, and **smoking status** to get a predicted estimate for their medical charges.
 
----
+
 
 ## 🛠 Installation & Usage
 
@@ -73,7 +73,7 @@ Access the hosted dashboard on the Streamlit Community Cloud:
 
 [Healthcare Dashboard Live](https://healthcare-dashboard.streamlit.app/)
 
----
+
 ## 💡 Insights and Learnings
 Throughout the development of this dashboard, several key insights and learnings emerged:
 
@@ -82,7 +82,7 @@ Throughout the development of this dashboard, several key insights and learnings
 - User-Centric Design: An intuitive navigation system and clear layout improve overall user experience.
 - Continuous Improvement: Feedback from real users is essential to further refine the analysis and prediction models.
 
----
+
 
 ## 🤝 Contributing
 Contributions are welcome! If you'd like to enhance this project, feel free to fork the repository and submit a pull request. For major changes, please open an issue first to discuss what you'd like to change.
