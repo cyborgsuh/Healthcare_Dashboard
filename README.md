@@ -74,7 +74,7 @@ Access the hosted dashboard on the Streamlit Community Cloud:
 [Healthcare Dashboard Live](https://healthcare-dashboard.streamlit.app/)
 
 ---
-##💡 Insights and Learnings
+## 💡 Insights and Learnings
 Throughout the development of this dashboard, several key insights and learnings emerged:
 
 - Data Visualization is Crucial: Interactive charts and graphs significantly enhance user understanding and engagement.
