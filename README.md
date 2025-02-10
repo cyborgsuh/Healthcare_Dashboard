@@ -66,7 +66,7 @@ streamlit run app.py
 ### 3️⃣ Explore the Dashboard
 Open your browser to the local URL provided by Streamlit, and navigate through the different pages using the built-in navigation sidebar.
 
----
+
 
 ## 🌐 Live Demo
 Access the hosted dashboard on the Streamlit Community Cloud:
