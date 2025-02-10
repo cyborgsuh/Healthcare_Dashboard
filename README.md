@@ -54,12 +54,14 @@ Ensure you have **Python 3.7+** installed. Then, install the required packages:
 
 ```bash
 pip install streamlit pandas plotly numpy scikit-learn streamlit-themes streamlit-extras streamlit-shadcn-ui
+```
 
 ### 2️⃣ Run the Application
 To launch the dashboard, run:
 
 ```bash
 streamlit run app.py
+```
 
 ### 3️⃣ Explore the Dashboard
 Open your browser to the local URL provided by Streamlit, and navigate through the different pages using the built-in navigation sidebar.
