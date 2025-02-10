@@ -71,7 +71,7 @@ Open your browser to the local URL provided by Streamlit, and navigate through t
 ## 🌐 Live Demo
 Access the hosted dashboard on the Streamlit Community Cloud:
 
-[Healthcare Dashboard Live][https://healthcare-dashboard.streamlit.app/]
+[Healthcare Dashboard Live](https://healthcare-dashboard.streamlit.app/)
 
 ---
 ##💡 Insights and Learnings
