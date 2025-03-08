@@ -49,21 +49,29 @@ This **Healthcare Analytics Dashboard** is an interactive **Streamlit** applicat
 
 ## 🛠 Installation & Usage
 
-### 1️⃣ Install Dependencies
+### 1️⃣ Clone the Repository
+First, clone the repository from GitHub:
+
+```bash
+git clone https://github.com/cyborgsuh/Healthcare_Dashboard.git
+cd Healthcare_Dashboard
+```
+
+### 2️⃣ Install Dependencies
 Ensure you have **Python 3.7+** installed. Then, install the required packages:
 
 ```bash
-pip install streamlit pandas plotly numpy scikit-learn streamlit-themes streamlit-extras streamlit-shadcn-ui
+pip install -r requirements.txt
 ```
 
-### 2️⃣ Run the Application
+### 3️⃣ Run the Application
 To launch the dashboard, run:
 
 ```bash
 streamlit run app.py
 ```
 
-### 3️⃣ Explore the Dashboard
+### 4️⃣ Explore the Dashboard
 Open your browser to the local URL provided by Streamlit, and navigate through the different pages using the built-in navigation sidebar.
 
 
